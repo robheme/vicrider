@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Victoria Motorcycle Learner Permit Practice Quiz (150+ Bank & Live Online)</title>
+  <style>
+    :root {
+      --navy: #0f2537;
+      --blue: #005a9c;
+      --accent: #f59e0b;
+      --green: #16a34a;
+      --red: #dc2626;
+      --bg: #f3f6f9;
+      --card: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding-bottom: 3rem;
+    }
+    header {
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      color: #fff;
+      padding: 2rem 1.25rem;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+    }
+    header h1 { font-size: 1.75rem; margin-bottom: 0.4rem; }
+    header p { font-size: 0.95rem; opacity: 0.9; max-width: 720px; margin: 0 auto; }
+    .container { max-width: 860px; margin: 1.75rem auto 0; padding: 0 1rem; }
+    .controls-card, .score-card, .question-card, .online-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 2px 6px rgba(15, 37, 55, 0.05);
+    }
+    .controls-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+    .control-group { flex: 1 1 180px; }
+    .control-group label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.88rem;
+      margin-bottom: 0.35rem;
+      color: var(--navy);
+    }
+    select, input[type="number"], input[type="password"] {
+      width: 100%;
+      padding: 0.65rem 0.75rem;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      font-size: 0.95rem;
+      background: #fff;
+      color: var(--text);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.7rem 1.3rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.15s ease, transform 0.1s ease, opacity 0.15s;
+    }
+    .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .btn:active:not(:disabled) { transform: translateY(1px); }
+    .btn-primary { background-color: var(--blue); color: #fff; }
+    .btn-primary:hover:not(:disabled) { background-color: #004477; }
+    .btn-accent { background-color: var(--accent); color: #1e293b; }
+    .btn-accent:hover:not(:disabled) { background-color: #d97706; color: #fff; }
+    .btn-submit {
+      background-color: var(--green);
+      color: #fff;
+      width: 100%;
+      font-size: 1.05rem;
+      padding: 0.9rem;
+      margin-top: 0.5rem;
+    }
+    .btn-submit:hover { background-color: #15803d; }
+    .bank-stats {
+      margin-top: 0.85rem;
+      padding-top: 0.85rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: var(--muted);
+      gap: 0.5rem;
+    }
+    details.online-panel summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--navy);
+      font-size: 0.95rem;
+      user-select: none;
+    }
+    .online-body { margin-top: 1rem; }
+    .online-status {
+      margin-top: 0.65rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.6rem;
+    }
+    .badge-rider { background-color: #fef3c7; color: #92400e; }
+    .badge-road { background-color: #e0f2fe; color: #075985; }
+    .badge-online { background-color: #f3e8ff; color: #6b21a8; margin-left: 0.4rem; }
+    .question-title {
+      font-size: 1.06rem;
+      font-weight: 600;
+      margin-bottom: 0.9rem;
+      color: var(--navy);
+    }
+    .options-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+    .option-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.7rem 0.95rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .option-label:hover { background-color: #f8fafc; border-color: #94a3b8; }
+    .option-label input[type="radio"] {
+      margin-top: 0.3rem;
+      accent-color: var(--blue);
+      transform: scale(1.15);
+    }
+    .option-label.correct-choice {
+      background-color: #dcfce7;
+      border-color: var(--green);
+      font-weight: 600;
+    }
+    .option-label.wrong-choice {
+      background-color: #fee2e2;
+      border-color: var(--red);
+    }
+    .explanation {
+      display: none;
+      margin-top: 0.9rem;
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+      background-color: #f8fafc;
+      border-left: 4px solid var(--blue);
+      font-size: 0.9rem;
+      color: #334155;
+    }
+    .score-card {
+      display: none;
+      text-align: center;
+      border-top: 5px solid var(--blue);
+    }
+    .score-card.pass { border-top-color: var(--green); }
+    .score-card.fail { border-top-color: var(--red); }
+    .score-number { font-size: 2.3rem; font-weight: 800; margin: 0.3rem 0; }
+    .status-pill {
+      display: inline-block;
+      padding: 0.3rem 0.9rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      margin-bottom: 0.6rem;
+    }
+    .status-pass { background: #dcfce7; color: #166534; }
+    .status-fail { background: #fee2e2; color: #991b1b; }
+    .unanswered-warning {
+      color: var(--red);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🏍️ Victoria Motorcycle Learner Permit Quiz</h1>
+    <p>150 built-in questions from the <strong>Victorian Rider Handbook</strong> &amp; <strong>Road to Solo Driving</strong> + optional Live Online Question Generator. Pass mark: 78% (25/32).</p>
+  </header>
+
+  <main class="container">
+    <!-- Main Controls -->
+    <section class="controls-card">
+      <div class="controls-grid">
+        <div class="control-group">
+          <label for="questionCount">Number of Questions (e.g. 32 for official test)</label>
+          <input type="number" id="questionCount" min="1" max="150" value="32" />
+        </div>
+        <div class="control-group">
+          <label for="sourceFilter">Handbook Filter</label>
+          <select id="sourceFilter">
+            <option value="all">Both Handbooks (Mixed)</option>
+            <option value="Rider Handbook">Victorian Rider Handbook Only</option>
+            <option value="Road to Solo Driving">Road to Solo Driving Only</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="prioritiseUnseen">Question Selection</label>
+          <select id="prioritiseUnseen">
+            <option value="unseen">Prioritise Unseen Questions</option>
+            <option value="random">Pure Random Shuffle</option>
+          </select>
+        </div>
+        <div>
+          <button class="btn btn-primary" id="newQuizBtn" type="button">🔄 New Quiz from Bank</button>
+        </div>
+      </div>
+      <div class="bank-stats">
+        <span id="bankCountDisplay">Loaded Bank: 150 Questions</span>
+        <span id="seenCountDisplay">Unseen in Pool: 150 | <a href="#" id="resetSeenLink" style="color:var(--blue);">Reset Seen History</a></span>
+      </div>
+    </section>
+
+    <!-- Live Online Refresh Panel -->
+    <section class="online-card">
+      <details class="online-panel">
+        <summary>🌐 Live Online Question Generator (Fetch Brand-New Questions On The Go)</summary>
+        <div class="online-body">
+          <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 0.85rem;">
+            Want fresh questions generated live from the web on the go? Enter a free <strong>Google Gemini API Key</strong> (stored only in your browser) and click <em>Fetch Live Questions</em> to generate a brand-new set and add them to your local 150-question bank.
+          </p>
+          <div class="controls-grid">
+            <div class="control-group">
+              <label for="apiKeyInput">Gemini API Key (Optional)</label>
+              <input type="password" id="apiKeyInput" placeholder="AIzaSy..." />
+            </div>
+            <div class="control-group">
+              <label for="onlineTopicSelect">Live Focus Area</label>
+              <select id="onlineTopicSelect">
+                <option value="Mixed Victorian Rider Handbook and Road to Solo Driving rules">Mixed Official Exam Style</option>
+                <option value="Victorian Rider Handbook: LAMS, learner rules, lane positioning, braking, and hazard perception">Rider Handbook Specifics</option>
+                <option value="Road to Solo Driving: Victorian intersections, trams, hook turns, speed limits, and give-way rules">Victorian Road Rules & Trams</option>
+              </select>
+            </div>
+            <div>
+              <button class="btn btn-accent" id="fetchOnlineBtn" type="button">⚡ Fetch Live Questions</button>
+            </div>
+          </div>
+          <div class="online-status" id="onlineStatus"></div>
+        </div>
+      </details>
+    </section>
+
+    <!-- Results Banner -->
+    <section class="score-card" id="scoreCard">
+      <span class="status-pill" id="passStatusPill"></span>
+      <div class="score-number" id="scoreDisplay">0 / 0 (0%)</div>
+      <p id="scoreFeedback" style="margin-bottom: 1rem; color: var(--muted);"></p>
+      <button class="btn btn-primary" type="button" onclick="startNewQuiz()">🔄 Load Next Set of Questions</button>
+    </section>
+
+    <!-- Quiz Form -->
+    <form id="quizForm">
+      <div id="questionsContainer"></div>
+      <p class="unanswered-warning" id="unansweredWarning"></p>
+      <button type="submit" class="btn btn-submit" id="submitBtn">✅ Submit Answers &amp; View Score</button>
+    </form>
+  </main>
+
+  <script>
+    const RAW_150_QUESTIONS = [
+      // --- RIDER HANDBOOK: LICENSING, LAMS, LEARNER RESTRICTIONS (1-25) ---
+      [0, "What is the minimum age to obtain a Victorian motorcycle learner permit, and how long is it valid?", ["16 years old; valid for 10 years", "17 years old; valid for 12 months", "18 years old; valid for 15 months", "18 years old; valid for 24 months"], 2, "You must be at least 18 years old to obtain a Victorian motorcycle learner permit, which is valid for 15 months."],
+      [0, "What is the minimum continuous period you must hold your motorcycle learner permit before applying for a motorcycle licence?", ["1 month", "3 months", "6 months", "12 months"], 1, "You must hold your learner permit continuously for at least 3 months immediately prior to applying for a licence."],
+      [0, "What is the maximum engine capacity and power-to-weight ratio allowed under the Learner Approved Motorcycle Scheme (LAMS)?", ["Up to 250cc and 100 kW/tonne", "Up to 500cc and 125 kW/tonne", "Up to 660cc and 150 kW/tonne", "Up to 1000cc if restricted by an electronic mode"], 2, "LAMS-approved motorcycles must have an engine capacity up to 660cc and a power-to-weight ratio not exceeding 150 kilowatts per tonne."],
+      [0, "Can you modify a LAMS-approved motorcycle to increase its engine power while holding a learner permit or restricted licence?", ["Yes, if the exhaust is EPA compliant", "No, any modification that increases power or performance invalidates its LAMS approval", "Yes, after holding your learner permit for 6 months", "Only if you notify VicRoads within 14 days"], 1, "Modifying a LAMS motorcycle to increase its power-to-weight ratio makes it illegal for a learner or restricted rider to ride."],
+      [0, "Are motorcycle learner permit holders allowed to lane filter in Victoria?", ["Yes, at speeds up to 30 km/h", "Yes, when traffic is completely stationary", "No, learner permit holders are strictly prohibited from lane filtering", "Only on multi-lane arterial roads"], 2, "Learner permit holders are prohibited from lane filtering at any time in Victoria."],
+      [0, "At what maximum speed are holders of a motorcycle licence (non-learners) allowed to lane filter between slow or stationary traffic?", ["Up to 20 km/h", "Up to 30 km/h", "Up to 40 km/h", "Up to 50 km/h"], 1, "Licensed riders may lane filter at speeds up to 30 km/h when safe and legal to do so; filtering above 30 km/h is unlawful."],
+      [0, "Where is lane filtering prohibited even for fully licensed motorcyclists in Victoria?", ["Between two lanes of traffic travelling in the same direction", "In bicycle lanes, breakdown lanes, kerbside next to parked cars, or school zones during school hours", "Approaching red traffic lights", "On roads with a 60 km/h speed limit"], 1, "Lane filtering is illegal in bicycle lanes, edge/breakdown lanes, next to the kerb or parked cars, and in active school zones."],
+      [0, "What is the Blood Alcohol Concentration (BAC) limit for a motorcycle learner permit holder in Victoria?", ["0.00 (Zero BAC)", "Under 0.02", "Under 0.05 if you hold a full car licence", "0.00 only between 10 pm and 6 am"], 0, "All motorcycle learner permit holders and restricted licence holders must have a zero (0.00) BAC while riding, even if they hold a full car licence."],
+      [0, "From what minimum distance must your rear 'L' plate be clearly visible when riding as a learner?", ["5 metres", "10 metres", "20 metres", "50 metres"], 2, "Your rear L plate must be displayed prominently and be clearly visible from at least 20 metres behind the motorcycle."],
+      [0, "Which item of high-visibility clothing must a Victorian motorcycle learner wear whenever riding?", ["Reflective ankle straps", "An approved high-visibility vest or jacket compliant with safety standards", "A brightly coloured helmet only", "High-visibility gloves"], 1, "Victorian motorcycle learners must wear an approved high-visibility vest or jacket as the outer garment whenever riding."],
+      [0, "Are Victorian motorcycle learner permit holders permitted to carry a pillion passenger?", ["Yes, if the passenger holds a full motorcycle licence", "No, learner riders must never carry a pillion passenger", "Yes, during daylight hours on 50 km/h roads", "Yes, if the passenger is over 21 years old"], 1, "Learner permit holders (and restricted licence holders) are prohibited from carrying pillion passengers at any time."],
+      [0, "Are motorcycle learner permit holders allowed to tow a trailer behind their motorcycle?", ["Yes, if the trailer weighs less than 100 kg", "No, learner riders are not permitted to tow a trailer", "Yes, during daylight hours", "Only on roads with a speed limit under 80 km/h"], 1, "Learner permit holders and restricted motorcycle licence holders are not permitted to tow a trailer while riding."],
+      [0, "Can a motorcycle learner rider use a mobile phone for navigation, music, or calls while riding?", ["Yes, if mounted on the handlebars and touched only at red lights", "No, learner riders must not use a mobile phone in any capacity (including hands-free or helmet Bluetooth) while riding", "Yes, via voice commands through a Bluetooth headset", "Yes, for GPS navigation if the screen is locked"], 1, "Under Victorian learner rules, learner riders are banned from using mobile phones or Bluetooth audio/navigation functions while riding."],
+      [0, "What must a learner or restricted rider carry with them every time they ride on a public road?", ["Their birth certificate", "Their current learner permit or driver/rider licence card", "The printed Victorian Rider Handbook", "A spare spark plug and tool kit"], 1, "Learner and restricted riders must carry their permit or licence card with them at all times while riding."],
+      [0, "If you already hold a full Victorian car driver licence and pass your motorcycle licence assessment, how long does the LAMS motorcycle restriction Period (E condition) apply?", ["6 months", "12 months", "3 years", "4 years"], 2, "Regardless of holding a full car licence, newly licensed riders are subject to the 3-year restricted motorcycle conditions (LAMS bike, zero BAC, no pillions, no towing)."],
+      [0, "Can you complete your Victorian motorcycle learner or licence skills assessment on a motorcycle fitted with a sidecar?", ["Yes, any LAMS bike with a sidecar is allowed", "No, assessments cannot be conducted on motorcycles fitted with a sidecar", "Only if the sidecar is empty", "Yes, if you only want a sidecar endorsement"], 1, "You cannot be assessed for a motorcycle permit or licence on a motorcycle with a sidecar."],
+      [0, "If you are assessed on an automatic motorcycle or motor scooter for your licence, what condition is placed on your motorcycle licence?", ["You can ride any manual LAMS bike immediately", "You are restricted to riding automatic motorcycles during your restricted licence period", "You cannot ride on freeways", "You must display an 'A' plate on the rear mudguard"], 1, "Passing the test on an automatic motorcycle restricts you to automatic LAMS motorcycles for the duration of your restricted period."],
+      [0, "What check-ride requirement must a Victorian motorcycle learner complete before taking the Motorcycle Licence Assessment (MLA)?", ["No check ride is required", "The Motorcycle Learner Check Ride at least 1 month before the licence assessment", "A 120-hour supervised logbook", "A freeway speed test at 110 km/h"], 1, "Learner riders must complete the on-road Check Ride to reinforce safe riding skills at least one month before attempting their licence assessment."],
+      [0, "Are you permitted to ride a motorcycle with an unfastened helmet chin strap?", ["Yes, below 40 km/h", "No, a helmet is useless if it comes off in a crash and must be securely fastened at all times", "Yes, if it is a modular flip-up helmet", "Only in car parks"], 1, "By law, a motorcycle helmet must meet approved standards and be securely fastened on your head whenever the bike is in motion."],
+      [0, "When should you replace your motorcycle helmet even if there are no visible cracks on the outer shell?", ["Every 6 months", "After any crash or significant impact, such as dropping it onto a hard surface", "Whenever it gets wet in the rain", "Only when the visor gets scratched"], 1, "A helmet's inner impact-absorbing liner compresses permanently during an impact, so it must be replaced after any crash or hard drop."],
+      [0, "Are you allowed to carry an animal between yourself and the handlebars on a motorcycle?", ["Yes, if the dog is in a tank bag", "No, except for a farmer travelling up to 500 metres on a road for farming activities", "Yes, on residential streets under 50 km/h", "Yes, if the animal is tethered to your jacket"], 1, "Riding with an animal between the rider and the handlebars is illegal, with a narrow exception for farmers moving up to 500m for farming work."],
+      [0, "How must a rider sit on a motorcycle while riding on a Victorian road?", ["Standing on the footpegs at all times", "Astride the rider's seat facing forward with one leg on each side and both feet on the footrests when moving", "Side-saddle on low-speed streets", "Sitting on the pillion seat for better aerodynamics"], 1, "Riders must sit astride the seat facing forward and keep both feet on the footrests whenever the motorcycle is moving."],
+      [0, "When is a motorcycle rider allowed to take one or both feet off the footrests while the motorcycle is moving?", ["Whenever stretching legs at 100 km/h", "Only when stopping, starting, or when necessary to steady the bike at very low speed", "When coasting downhill", "When signalling a turn with your foot"], 1, "Both feet must stay on the footrests while moving, except when coming to a stop, moving off, or balancing at walking pace."],
+      [0, "Is a motorcycle rider permitted to ride with more than one other motorcycle side-by-side in the same lane?", ["No, you cannot ride beside another vehicle in the same lane", "Up to two motorcyclists may ride side-by-side in the same lane when safe", "Up to four motorcyclists may ride abreast in one lane", "Only learner riders can ride two abreast"], 1, "Up to two motorcycle riders are permitted to ride side-by-side within a single marked lane, though staggered formation is much safer."],
+      [0, "Even though riding two abreast is legal, what does the Victorian Rider Handbook recommend when riding in a group?", ["Ride three abreast to shorten the group", "Ride in a staggered formation to maintain a safe space cushion and swerve room", "Ride single-file 1 metre off the rear tyre ahead", "Ride on the painted lane lines"], 1, "Riding in a staggered formation gives each rider a clear view ahead and emergency braking or swerving space inside the lane."],
+
+      // --- RIDER HANDBOOK: PROTECTIVE GEAR, VISIBILITY & PRE-RIDE CHECKS (26-45) ---
+      [0, "Why should you avoid wearing a backpack strapped to your body containing hard or heavy objects while riding?", ["It reduces fuel economy by 20%", "Heavy or hard objects in a backpack can cause serious spinal injuries if you fall and raise your centre of gravity", "It is illegal to wear any backpack on a motorcycle", "It blocks the rear indicator lights"], 1, "Hard items in a backpack can injure your spine in a slide. Secure loads low and centrally on the bike using panniers, a top box, or a tank bag."],
+      [0, "What should you look for when choosing a motorcycle visor or goggles for night or wet-weather riding?", ["A dark tinted or iridium mirror visor", "A clean, unscratched, untinted (clear) visor", "Polarised sunglasses under a dark visor", "Riding with the visor fully open at 100 km/h"], 1, "Tinted visors drastically reduce vision at night and in rain, and scratched visors scatter oncoming headlights into glare."],
+      [0, "What does ABRASION resistance in motorcycle jackets and pants protect you against?", ["Wind chill only", "Skin and tissue loss when sliding across rough road surfaces in a crash", "Sunburn only", "Exhaust noise"], 1, "Purpose-built motorcycle gear with abrasion-resistant materials and CE armour protects skin, joints, and bones during impacts and slides."],
+      [0, "Why are ordinary lace-up sneakers unsafe for motorcycle riding?", ["They are too heavy for the gear lever", "They offer no ankle crush protection, can come off in a crash, and loose laces can tangle on footpegs or levers", "They void your motorcycle warranty", "They are prohibited by VicRoads road rules"], 1, "Sturdy over-the-ankle motorcycle boots protect ankle bones and prevent laces from catching on gear levers, brake pedals, or chains."],
+      [0, "What is the minimum legal tread depth for motorcycle tyres in Victoria?", ["0.5 mm", "1.5 mm across the principal grooves", "3.0 mm", "Tyre tread is not required on dry days"], 1, "Motorcycle tyres must have at least 1.5 mm of tread depth across the tread surface that contacts the road."],
+      [0, "How do under-inflated or over-inflated motorcycle tyres affect your riding?", ["They have no effect on two wheels", "They reduce the tyre's contact patch, degrade handling and cornering stability, and lengthen braking distances", "Under-inflated tyres improve wet-weather grip on sealed roads", "Over-inflated tyres prevent punctures completely"], 1, "Correct tyre pressure is critical because a motorcycle relies on two very small contact patches for all braking and cornering grip."],
+      [0, "When should you check your motorcycle's tyre pressures for an accurate reading?", ["Immediately after a 100 km freeway ride while tyres are hot", "Before riding, when the tyres are cold", "Only once a year during a service", "While sitting on the bike with a pillion"], 1, "Tyre pressure specifications in the owner's manual are measured when the tyres are cold (before riding)."],
+      [0, "What can happen if your motorcycle's drive chain is far too loose or badly neglected?", ["The headlights will dim", "The chain can jump off the sprockets and lock the rear wheel, causing a crash", "The front brake will lock up", "Fuel octane will drop"], 1, "A loose or dry chain can derail and jam the rear wheel or engine casing, causing an instant rear-wheel lockup."],
+      [0, "During a pre-ride check, how should the throttle grip behave when you twist it and release it?", ["It should stay open as a manual cruise control", "It should turn smoothly and snap shut automatically when released", "It should require two hands to twist", "It should only close when the engine is running"], 1, "A safe throttle must rotate smoothly without binding and snap back to the closed position immediately when released."],
+      [0, "Before moving off, how should you adjust your motorcycle's mirrors?", ["So you see mostly the sky behind you", "While sitting in your normal riding posture, so you can see the lane behind you and as much of the adjacent lanes as possible", "Folded inwards to reduce drag", "Pointed down at your own rear tyre"], 1, "Adjust your mirrors while seated in your normal riding position so a small edge of your arm/shoulder is visible and the road behind is clear."],
+      [0, "Why do modern motorcycles have their low-beam headlight wired to stay on automatically during the day?", ["To keep the battery warm", "To make the narrow silhouette of the motorcycle more conspicuous to other road users", "Because alternator regulators cannot turn off", "To illuminate overhead street signs in daylight"], 1, "Having the headlight on during the day helps oncoming and turning drivers notice the motorcycle earlier."],
+      [0, "Why is it dangerous to rely solely on your daytime headlight or high-vis vest to be seen by car drivers?", ["High-vis vests make you invisible in sunlight", "Drivers can still fail to notice a motorcycle due to 'looked-but-failed-to-see' errors or visual obstructions", "Headlights blind pedestrians at noon", "Car windscreens filter out yellow light"], 1, "Even with high-vis gear and headlights, riders must actively position themselves in drivers' line of sight and never assume they have been seen."],
+      [0, "What is 'motion camouflage' or the 'loom effect' when a motorcycle approaches an intersection?", ["Riding a camouflaged off-road bike", "Because a motorcycle has a narrow frontal profile, drivers have trouble judging its speed and how fast it is closing in", "Riding in the shadow of a building", "Waving your arms while riding"], 1, "A narrow object grows slowly in a driver's field of view until the last moment, making drivers overestimate how much time they have to pull out."],
+      [0, "If you must carry luggage on your motorcycle, where should the weight be positioned?", ["High up on the handlebars", "Hanging off one side only", "As low as possible, balanced evenly side-to-side, and close to the centre of the bike over or forward of the rear axle", "Strapped behind the rear number plate"], 2, "Keeping weight low, balanced, and forward of the rear axle preserves steering feel and prevents front-wheel lightness."],
+      [0, "After washing your motorcycle or riding through deep surface water, what should you test immediately at low speed?", ["Your top speed in first gear", "Your front and rear brakes, as wet brake discs and pads can briefly lose stopping power", "Your horn volume", "Your high-beam bulb"], 1, "Water on brake discs reduces friction initially; gently applying the brakes dries the pads and restores normal feel."],
+      [0, "What is the purpose of the red engine cut-off (kill) switch on the right handlebar?", ["To activate the hazard lights", "To stop the engine quickly in an emergency without taking your hands off the handlebars", "To engage reverse gear", "To switch to reserve fuel"], 1, "The kill switch lets you shut down the engine immediately with your thumb while keeping both hands on the bars."],
+      [0, "Why is it important to cancel your turn indicator immediately after completing a turn or lane change on a motorcycle?", ["Indicator bulbs burn out after 30 seconds", "Most motorcycle indicators do not self-cancel, and a flashing indicator can mislead waiting drivers into pulling out in front of you", "It drains all engine oil", "It activates the rear brake"], 1, "If you leave your left indicator flashing, a driver waiting at a side street may assume you are turning in and pull out across your path."],
+      [0, "How does cold weather affect a rider's ability to operate a motorcycle safely?", ["Cold air gives tyres instant race grip", "Cold hands and body chill slow down reaction times, reduce fine muscle control on levers, and cause fatigue and distraction", "Engines cannot run below 15°C", "Cold weather makes brake fluid boil"], 1, "Hypothermia or numb fingers make it difficult to modulate the front brake and clutch smoothly and slow mental decision-making."],
+      [0, "When riding in hot Australian summer weather, why should you still wear full protective riding gear?", ["To sweat out toxins", "Ventilated riding gear protects you from both crash abrasion and dehydration caused by hot wind drying out exposed skin", "Because skin does not burn on a moving bike", "To weigh down the suspension"], 1, "Riding in a t-shirt exposes you to severe road rash in a fall and accelerates dehydration and heat exhaustion from hot wind."],
+      [0, "What is the best approach to riding if you are feeling angry, stressed, or fatigued?", ["Ride faster to get home sooner", "Do not ride until you have calmed down or rested, as strong emotions and fatigue severely impair hazard perception", "Drink an energy drink while riding", "Listen to loud music inside your helmet"], 1, "Fatigue and strong emotions narrow your attention and lead to risky decisions or missed hazards."],
+
+      // --- RIDER HANDBOOK: ROAD POSITIONING, BUFFER ZONES & FOLLOWING DISTANCE (46-75) ---
+      [0, "When dividing your lane into three imaginary tracks (left, centre, right), which track is recommended as the standard riding position?", ["The left wheel track near the gutter", "The dead-centre strip of the lane", "The right wheel track (just right of the centre of the lane)", "The painted white dividing line"], 2, "The right wheel track offers the best sightlines, keeps you out of the roadside gutter clutter, and discourages cars from sharing your lane."],
+      [0, "Why does the Victorian Rider Handbook advise against riding continuously in the dead centre of the lane?", ["It is illegal to ride in the centre", "Oil, grease, and coolant droppings from cars accumulate in the centre strip, and utility covers or painted arrows are often located there", "The road is crowned too steeply in the middle", "Car mirrors cannot see the centre of the lane"], 1, "While the centre track is generally driveable, oil drips at intersections, painted arrows, and manhole covers make the right wheel track a safer default position."],
+      [0, "What is the minimum recommended following distance behind another vehicle under ideal dry conditions?", ["1 second", "At least 3 seconds", "1 car length per 50 km/h", "half a second"], 1, "A minimum 3-second following distance gives you time to scan ahead, spot road surface hazards, and react smoothly."],
+      [0, "How should you adjust your following distance when riding in wet, icy, foggy, or night conditions?", ["Move closer to use the car's tail lights", "Increase your gap to at least 4 to 6 seconds or more", "Keep it at 2 seconds", "Ride alongside the car ahead"], 1, "In poor visibility or slippery conditions, increase your following gap to 4 seconds or more to allow for longer stopping distances."],
+      [0, "Why should you avoid riding in another driver's blind spot?", ["It creates wind turbulence", "The driver may change lanes into your path without seeing you", "It overheats your engine", "It is a demerit point offence"], 1, "Motorcycles easily disappear in car and truck side blind spots; either drop back where you can see the driver's face in their side mirror or pass briskly and safely."],
+      [0, "When passing a line of parallel-parked cars on a suburban street, how should you position your motorcycle?", ["Hug the parked cars within 30 cm", "Move towards the right side of your lane to create at least a 1-metre buffer from opening car doors and pedestrians stepping out", "Ride on the footpath", "Accelerate to 70 km/h to pass quickly"], 1, "A 1-metre buffer zone (door width) protects you from a driver suddenly opening a door or a car pulling out from the kerb."],
+      [0, "When cresting a blind hill or approaching a blind left-hand curve on a narrow country road, how should you adjust your lane position?", ["Move right onto the centre line", "Move away from the centre line (towards the centre or left track) so oncoming vehicles cutting the corner do not hit you", "Ride on the gravel shoulder", "Turn off your headlight"], 1, "Oncoming drivers often drift over the centre line on blind crests and curves; moving slightly left creates a life-saving safety buffer."],
+      [0, "What is a 'space cushion' around a motorcycle?", ["An airbag vest", "A clear buffer zone to the front, sides, and rear that gives you time to react and room to manoeuvre", "The foam inside the seat", "The gap between your knees and the tank"], 1, "Maintaining a 360-degree space cushion gives you escape routes and reaction time if another road user makes a mistake."],
+      [0, "If a tailgater is following your motorcycle too closely, what is the safest way to handle the situation?", ["Slam on your brakes to warn them", "Increase your own following distance to the vehicle in front so you can brake more gradually, or let the tailgater overtake safely", "Speed up above the speed limit", "Turn around and gesture at the driver"], 1, "Increasing the gap in front of you allows you to slow down gently for hazards, reducing the risk of being rear-ended by the tailgater."],
+      [0, "Before changing lanes or merging on a motorcycle, what must you ALWAYS do in addition to checking your mirrors and signalling?", ["Flash your high beam three times", "Perform a head check (shoulder check) to verify your blind spot is clear", "Sound your horn", "Stand up on the footpegs"], 1, "Motorcycle mirrors have significant blind spots; a quick head check over your shoulder is essential before any lateral move."],
+      [0, "When stopped behind a car at traffic lights, why should you keep your motorcycle in first gear while watching your mirrors?", ["To rev the engine loudly", "So you can move out of the way quickly if a vehicle approaching from behind fails to stop", "Because neutral damages the gearbox", "To keep the headlight bright"], 1, "Rear-end collisions at intersections are a major hazard; staying in first gear with an escape route planned lets you move forward if a car behind isn't stopping."],
+      [0, "When stopped behind a car at an intersection, where should you position your motorcycle?", ["Directly behind the middle of the car's bumper, 30 cm away", "Slightly to the left or right wheel track, far enough back to see the car's rear tyres touching the road", "Beside the driver's window", "Across the pedestrian crosswalk"], 1, "Stopping where you can see the tyres of the vehicle ahead touching the bitumen gives you room to manoeuvre around it and an angled escape path."],
+      [0, "What is the main danger of riding alongside a large heavy vehicle (truck or bus) approaching an intersection or roundabout?", ["Trucks block GPS signals", "Long vehicles have huge blind spots and often need to swing wide or straddle lanes when turning", "Truck exhaust stains high-vis vests", "Truck tyres throw up dust"], 1, "Never squeeze alongside a turning truck or bus; they require extra lane width to turn and the driver cannot see a motorcycle beside the trailer."],
+      [0, "How do wind gusts created by passing large trucks affect a motorcycle?", ["They have no effect on LAMS motorcycles", "They create sudden air buffeting pushing you away and then pulling you toward the truck as you pass the cab", "They lift both wheels off the ground", "They lock the front brake"], 1, "Prepare for crosswind turbulence when passing or being passed by heavy vehicles by keeping a relaxed grip on the bars and a generous side buffer."],
+      [0, "When riding through a curve, which direction should you look?", ["Straight down at your front tyre", "Through the turn towards where you want to go (the vanishing point / exit of the curve)", "At the speedometer", "At the roadside guardrail"], 1, "A motorcycle goes where you look ('target fixation'). Keep your head up and look well ahead through the corner."],
+      [0, "What is 'target fixation' on a motorcycle?", ["Locking your eyes onto a hazard (like a pothole or tree), which causes you to steer straight into it", "Using radar cruise control", "Adjusting your headlight aim", "Looking at the exit of a corner"], 0, "Staring at an obstacle causes you to subconsciously steer toward it. Always look toward the clear escape path instead."],
+      [0, "At speeds above walking pace (around 15-20 km/h), how do you initiate a lean and steer a motorcycle into a corner?", ["By turning the handlebars sharply in the direction of the turn", "By counter-steering (gently pushing forward on the handlebar on the side you want to turn towards)", "By twisting the throttle rapidly", "By shifting your feet backward"], 1, "Push left to lean and go left; push right to lean and go right. Counter-steering is the quickest and most precise way to lean a motorcycle."],
+      [0, "What is the safest technique for cornering on a public road?", ["Enter fast and brake hard at the apex", "Slow down and select the right gear BEFORE entering the corner, then maintain a steady or gently accelerating throttle through the turn", "Pull the clutch lever in and coast through the corner", "Cross onto the wrong side of the road to straighten the curve"], 1, "Complete your braking while the bike is upright before the turn, so the tyres can dedicate their grip to cornering."],
+      [0, "What happens if you brake hard or chop the throttle abruptly while leaned over in a corner?", ["The bike leans further without losing grip", "Sudden load transfer can overload the front tyre's traction or upset the suspension, causing a slide or makes the bike stand up and run wide", "The rear wheel lifts into the air", "The ABS turns off"], 1, "Abrupt braking mid-corner steals traction needed for cornering and can cause a front-wheel wash-out or cause the bike to stand upright and run off the road."],
+      [0, "When riding through a series of curves, what is a good way to judge whether a corner is tightening up or opening out?", ["Watch the gap between the left and right road edges (the 'vanishing point')", "Count the white posts", "Close one eye", "Shift into neutral"], 0, "If the vanishing point moves closer to you, the corner is tightening (slow down); if it moves away, the corner is opening up."],
+
+      // --- RIDER HANDBOOK: BRAKING, HAZARDS & EMERGENCIES (66-90) ---
+      [0, "On a motorcycle with separate front and rear brake controls, which brake provides the majority (around 70% or more) of your stopping power on dry sealed roads?", ["The rear brake", "The front brake", "Engine braking alone", "Both provide exactly 50% regardless of weight transfer"], 1, "During braking, weight transfers forward onto the front wheel, giving the front brake around 70% of the motorcycle's total stopping power."],
+      [0, "What is the recommended technique for normal and emergency straight-line braking on a motorcycle?", ["Use only the rear brake so you don't flip over", "Apply both the front and rear brakes together smoothly and progressively", "Grab the front brake lever as fast and hard as possible in one sudden motion", "Pull the clutch in and use only engine braking"], 1, "Using both brakes together—squeezing the front brake progressively so weight transfers onto the front tyre before applying full force—achieves the shortest stop."],
+      [0, "Why is 'progressive' squeezing of the front brake lever so important?", ["It saves brake pad wear", "It compresses the front forks and transfers weight onto the front tyre, increasing the tyre's contact patch and grip before heavy braking force is applied", "It warms up the brake fluid", "It flashes the brake light faster"], 1, "Snatching the front brake before weight transfers forward can lock or overload the unloaded front tyre, causing an immediate skid."],
+      [0, "What happens if you lock the rear wheel while braking in a straight line on a bike without ABS?", ["The front wheel stops spinning", "The rear of the motorcycle may skid sideways, becoming unstable if released while out of alignment", "The engine stalls immediately even with the clutch in", "The bike flips forward"], 1, "A locked rear wheel loses directional stability and slides sideways; releasing a locked rear brake while the bike is sideways can cause a 'high-side' crash."],
+      [0, "What happens if the front wheel locks up and skids during braking?", ["Nothing, the bike stays upright", "You lose steering control almost immediately and the front end will likely fold and crash unless released instantly", "The rear brake takes over automatically", "The bike accelerates"], 1, "If the front wheel locks on a non-ABS bike, you must release the lever immediately and reapply smoothly, or the bike will fall within a fraction of a second."],
+      [0, "How does an Anti-lock Braking System (ABS) assist a motorcycle rider during heavy emergency braking?", ["It reduces your speed automatically before corners", "It prevents the wheels from locking and skidding, helping the rider maintain stability and stay upright during maximum braking", "It allows you to tailgate safely in the rain", "It eliminates the need to use the front brake"], 1, "ABS modulates brake pressure when it detects an impending wheel lock, preventing skids and greatly reducing crash risk."],
+      [0, "Which of the following road surfaces offers MUCH less traction for motorcycle tyres, especially when wet?", ["Clean dry coarse asphalt", "Painted road markings, tram tracks, metal inspection covers, gravel, oil patches, and wet leaves", "Dry concrete freeway lanes", "Upgraded high-friction intersection surfacing"], 1, "Smooth metal (tram tracks, manhole lids), painted white lines, loose gravel, and oil become extremely slippery for a two-wheeled vehicle."],
+      [0, "When is a road typically at its most slippery during rain?", ["After 3 hours of heavy rain", "During the first 15 to 30 minutes of light rain after a dry spell", "One day after the rain stops", "Only when puddles are deeper than 5 cm"], 1, "Light rain mixes with oil, rubber, and dust accumulated during dry weather to form a greasy film before heavier rain washes it away."],
+      [0, "How should you cross steel tram tracks or railway lines that run at a shallow angle to your path?", ["Cross them at a very shallow angle while leaning hard", "Adjust your line smoothly so you cross the metal rails at as wide an angle as possible (closer to 45–90 degrees) with the bike upright", "Accelerate hard while on the steel rail", "Lock the rear brake as you cross"], 1, "Crossing wet steel tram tracks at a shallow angle or while leaning can cause the tyre to slip along the rail. Cross cleanly at an angle with the bike upright and steady throttle."],
+      [0, "If you cannot avoid riding over a small obstacle, pothole, or wooden plank on the road ahead, what should you do?", ["Brake hard right on top of the obstacle", "Slow down before reaching it, release the brakes just before impact, rise slightly on the footpegs so your knees absorb the shock, and keep the bike upright", "Close your eyes and let go of the handlebars", "Swerve violently while holding full front brake"], 1, "Releasing the brakes just before hitting a bump lets the front suspension extend and absorb the impact rather than bottoming out."],
+      [0, "If you need to swerve suddenly to avoid a hazard, should you brake heavily at the exact same moment you swerve?", ["Yes, pull the front brake as hard as you can while swerving", "No, separate braking and swerving—either brake before/after swerving, because heavy braking while leaning into a swerve can exceed tyre grip", "Yes, lock the rear wheel to slide around it", "Turn the ignition key off while swerving"], 1, "Tyres have a finite amount of grip; demanding maximum braking and sharp cornering/swerving simultaneously can cause the tyres to slide out."],
+      [0, "What should you do if your motorcycle experiences a tyre blowout or sudden puncture while riding?", ["Apply the front brake hard immediately", "Keep a firm grip on the handlebars, stay off the brakes initially, ease off the throttle smoothly, and steer gently to the side of the road", "Jump off the motorcycle", "Shift down into first gear immediately"], 1, "Braking hard on a flat tyre can wrench the handlebars or peel the tyre off the rim. Hold the bars firmly, roll off the throttle, and brake very gently on the good wheel once slow."],
+      [0, "What should you do if your throttle sticks open while riding?", ["Turn off the key and lock the steering", "Twist the grip back and forth, and immediately pull in the clutch lever and press the engine cut-off (kill) switch, then brake safely to a stop", "Shift into a higher gear to go faster", "Use only the rear brake with the clutch engaged"], 1, "Pulling in the clutch instantly disconnects engine power from the rear wheel, allowing you to use the kill switch and coast safely to the side of the road."],
+      [0, "What causes a 'tank slapper' or front-wheel wobble, and how should you respond?", ["Caused by uneven tyre pressure, loose steering bearings, poor loading, or hitting a bump; hold the bars firmly without fighting them and smoothly roll off the throttle", "Caused by clean fuel; grab the front brake hard", "Caused by ABS; accelerate to 130 km/h", "Caused by new boots; let go of the handlebars"], 0, "Do not grab the front brake during a handlebar wobble. Grip the tank with your knees, hold the handlebars firmly (don't try to force them), and gradually ease off the throttle."],
+      [0, "Why are intersections the most common location for crashes between motorcycles and cars?", ["Traffic lights don't detect motorcycles", "Oncoming drivers turning right across your path or drivers pulling out from side streets fail to see the motorcycle or misjudge its speed", "Motorcycles cannot turn at 90-degree corners", "Stop lines are painted with slippery paint"], 1, "Around half of multi-vehicle motorcycle crashes happen at intersections when another driver turns across or pulls into the rider's right of way."],
+      [0, "As you approach a green traffic light or an intersection where a car is waiting to turn across your path, what precaution should you take?", ["Accelerate to beat the car", "Ease off the throttle, cover your front and rear brakes, check your mirrors, and position yourself for maximum visibility", "Look only at the traffic light colour", "Sound your horn continuously for 100 metres"], 1, "Covering your brakes reduces your reaction time by half a second or more if the waiting driver suddenly pulls out."],
+      [0, "When riding at night on a country road, how far ahead should you be able to stop?", ["Within 100 metres regardless of beam", "Well within the distance illuminated by your headlight", "Within 6 seconds of high beam", "Only at the next town"], 1, "Never 'over-ride' your headlight at night—your speed must allow you to stop cleanly within the patch of road lit by your beam."],
+      [0, "When are kangaroos, wombats, and other wildlife most active on Victorian country roads?", ["At 12:00 pm noon", "At dawn and dusk (sunrise and sunset) and at night", "Only during winter snowstorms", "Only on multi-lane city freeways"], 1, "Wildlife movement peaks around dawn and dusk; scan the roadsides and slow down in signed wildlife areas."],
+      [0, "If an oncoming vehicle fails to dip its high-beam headlights at night, where should you look to avoid being dazzled?", ["Stare directly into their headlights and turn yours onto high beam", "Slow down and guide your motorcycle by looking towards the left edge of your lane / white edge line", "Close your eyes for 3 seconds", "Look straight down at your fuel tank"], 1, "Looking slightly to the left edge of the road prevents retinal bleaching from the oncoming glare while keeping you in your lane."],
+      [0, "Why is riding a motorcycle after consuming cannabis, illicit drugs, or sedating prescription medication so dangerous?", ["It only affects car drivers", "Drugs impair balance, coordination, hazard perception, reaction time, and judgement—all of which are critical on two wheels", "It is legal if you wear a high-vis vest", "Coffee cancels out drug impairment"], 1, "Victoria has zero tolerance for illicit drugs while riding, and any substance that impairs balance or reaction time dramatically increases crash risk."],
+
+      // --- ROAD TO SOLO DRIVING: SPEED LIMITS, TRAMS, HOOK TURNS & INTERSECTIONS (91-150) ---
+      [1, "What is the default speed limit in a built-up (urban/residential) area in Victoria where there are no speed limit signs?", ["40 km/h", "50 km/h", "60 km/h", "80 km/h"], 1, "Unless signed otherwise, the default speed limit in built-up areas in Victoria is 50 km/h."],
+      [1, "What is the default speed limit on country roads outside built-up areas in Victoria where no speed limit sign is posted?", ["80 km/h", "90 km/h", "100 km/h", "110 km/h"], 2, "Outside built-up areas in Victoria, the default speed limit is 100 km/h unless signed otherwise."],
+      [1, "What is the speed limit in a signed Shared Zone where pedestrians and vehicles share the road space?", ["10 km/h", "20 km/h", "30 km/h", "40 km/h"], 0, "The speed limit in a Shared Zone is 10 km/h, and drivers/riders must give way to all pedestrians."],
+      [1, "When passing a stationary emergency vehicle, enforcement vehicle, or roadside assistance vehicle displaying flashing blue, red, magenta, or yellow lights, what must you do?", ["Maintain the posted speed limit and sound your horn", "Slow down to a speed that enabled you to stop safely, and pass at no more than 40 km/h", "Stop completely until the lights are turned off", "Accelerate to clear the area quickly"], 1, "Under Victorian Road Rule 79A, you must slow down safely and not exceed 40 km/h when passing a stationary emergency, enforcement, escort, or incident response vehicle with flashing lights."],
+      [1, "What must you do when approaching a tram that has stopped at a kerbside tram stop (without a safety zone) and opened its doors?", ["Pass the tram on the left at 10 km/h", "Stop level with the rear of the tram and wait until the doors close and the road is clear of pedestrians", "Pass on the right side of the tram", "Sound your horn and weave through pedestrians"], 1, "At a kerbside tram stop with no safety zone, you must stop at the rear of the tram and give way to all passengers boarding or alighting until the doors close and the road is clear."],
+      [1, "Once a tram at a kerbside tram stop (without a safety zone) has closed its doors and no pedestrians are on the road, what is the maximum speed you may pass the tram before it moves off?", ["10 km/h", "20 km/h", "40 km/h", "50 km/h"], 0, "You must not exceed 10 km/h when passing a stationary or slow-moving tram at a tram stop after the doors have closed and pedestrians have cleared."],
+      [1, "What is the maximum speed you may travel past a tram that is stopped at a tram stop WITH a raised pedestrian safety zone?", ["10 km/h", "A safe speed that allows you to stop immediately if a pedestrian steps onto the road", "60 km/h regardless of pedestrians", "You must stop behind the rear of the tram until it leaves"], 1, "Where there is a pedestrian safety zone, you may pass on the left of the zone at a safe speed, watching carefully for pedestrians crossing to or from the kerb."],
+      [1, "When a tram is travelling in a marked tram lane (indicated by a continuous yellow line and Tram Lane signs), are you allowed to ride in that lane?", ["Yes, motorcycles can use tram lanes at any time", "No, except for up to 50 metres to avoid an obstruction or turn right (where permitted)", "Yes, outside peak hours", "Yes, if no tram is visible in your mirrors"], 1, "You must not ride in a dedicated tram lane during its hours of operation except briefly (up to 50m) to pass an obstruction such as a turning vehicle."],
+      [1, "How do you correctly perform a Hook Turn (turning right from the far left lane) at a signed intersection in Melbourne?", ["Turn right immediately from the left lane as soon as your light turns green", "Approach and enter the intersection in the far left lane, pull forward to the marked waiting area on the far left side without blocking crosswalks, and wait until the traffic lights on the street you are turning INTO turn green", "Stop on the tram tracks in the middle of the intersection", "Make a U-turn after the intersection"], 1, "In a hook turn, you enter from the far left lane on a green light, wait at the far left corner clear of pedestrians, and complete your turn when the lights on the new street turn green (or when safe if unsigned lights)."],
+      [1, "Are motorcycle riders allowed to make a U-turn at an intersection with traffic lights in Victoria?", ["No, U-turns are banned at all traffic lights in Victoria", "Yes, unless there is a 'No U-Turn' sign, provided you give way to all other vehicles and pedestrians", "Only between midnight and 5 am", "Only if there is a green U-turn arrow"], 1, "Unlike most other Australian states, in Victoria you ARE permitted to make a U-turn at traffic lights unless a 'No U-turn' sign is displayed, provided you give way to all traffic and pedestrians."],
+      [1, "Are you permitted to make a U-turn across a single continuous white dividing line or double continuous dividing lines?", ["Yes, if no cars are coming", "No, you must not cross any continuous dividing line to make a U-turn", "Yes, motorcycles are exempt from continuous line rules", "Only in 50 km/h zones"], 1, "It is illegal to make a U-turn across a single continuous line, double continuous lines, or when a continuous line is on your side of a broken line."],
+      [1, "When entering a roundabout in Victoria, which vehicles must you give way to?", ["Vehicles approaching from your left", "All vehicles already in the roundabout (and any tram entering or approaching the roundabout)", "Vehicles entering after you from the right", "Only heavy vehicles"], 1, "When entering a roundabout, you must slow down or stop and give way to all vehicles already in the roundabout, plus any tram entering or in the roundabout."],
+      [1, "What are the indicator (signalling) rules when riding through a roundabout?", ["You never need to indicate at a roundabout", "Signal left when turning left, right when turning right or making a U-turn, and if practicable signal left just before exiting the roundabout", "Signal right when going straight ahead", "Signal left before entering to turn right"], 1, "You must indicate left or right before entering (if turning) and, where practicable, indicate left as you exit the roundabout."],
+      [1, "At an unsigned T-intersection (with no Stop or Give Way signs or traffic lights), who must give way?", ["The vehicle on the continuing road", "The vehicle on the terminating road (the stem of the 'T') must give way to all vehicles and pedestrians on the continuing road", "Whoever arrives second", "The vehicle on the left always gives way"], 1, "At any T-intersection without signs or lights, traffic on the terminating road must give way to all traffic on the continuing road."],
+      [1, "At an uncontrolled four-way crossroads (no signs, lines, or lights), if you are going straight ahead and another vehicle is approaching from your right going straight ahead, who gives way?", ["The faster vehicle has right of way", "You must give way to the vehicle on your right", "The vehicle on your right must give way to you", "Motorcycles always have right of way"], 1, "At an uncontrolled intersection (not a T-intersection or roundabout), you must give way to any vehicle approaching from your right."],
+      [1, "If you are turning right at an intersection and an oncoming vehicle is turning left into the same street, who must give way (assuming no turning arrows or slip lanes)?", ["The oncoming left-turning vehicle must give way", "You (the right-turning vehicle) must give way to the oncoming left-turning vehicle", "Whoever signals first goes first", "Both turn at the same time into one lane"], 1, "A vehicle turning right must give way to an oncoming vehicle going straight ahead or turning left (unless the left-turning vehicle is using a slip lane)."],
+      [1, "If a driver or rider is turning left using a slip lane, who must they give way to?", ["Only pedestrians on the footpath", "All traffic on the road they are entering (including oncoming vehicles turning right into that road) and any pedestrians crossing the slip lane", "Nobody, slip lanes have priority", "Only buses"], 1, "Vehicles turning left through a slip lane must give way to all traffic entering that road, including oncoming right-turning vehicles, and to pedestrians on the slip lane."],
+      [1, "When turning left or right at an intersection (with or without traffic lights), what is the rule regarding pedestrians crossing the road you are turning into?", ["Pedestrians must give way to turning motorcycles", "You must give way to any pedestrian crossing the road you are turning into", "You only give way if there is a zebra crossing", "Sound your horn so they step back"], 1, "Turning vehicles must ALWAYS give way to pedestrians crossing the road the vehicle is entering, even if there are no pedestrian lights or crossings."],
+      [1, "When merging where two lanes reduce into one and the dashed lane line ENDS before the merge (a 'zip merge' with no line to cross), who must give way?", ["The vehicle in the left lane always gives way", "Whichever vehicle has its rear behind the front of the other vehicle must give way (the trailing vehicle gives way to the leading vehicle)", "The smaller vehicle gives way", "Traffic on the right always gives way"], 1, "Where lane lines end before the lanes merge, the vehicle that is behind must give way to the vehicle that is ahead (zip merge)."],
+      [1, "When merging into another lane by crossing a broken (dashed) white lane line, who must give way?", ["The vehicle in the lane being entered", "The vehicle crossing the broken line must give way to any vehicle already in the lane it is moving into", "Whoever is slightly ahead", "Vehicles on the left always have priority"], 1, "Whenever you cross a broken line to merge or change lanes, you must give way to all vehicles already travelling in that lane."],
+      [1, "On a multi-lane road where the speed limit is OVER 80 km/h (e.g. 90, 100, or 110 km/h) or a 'Keep Left Unless Overtaking' sign applies, when may you travel in the right-hand lane?", ["Whenever you are doing the speed limit", "Only when overtaking, turning right, making a U-turn, avoiding an obstruction, or when all lanes are congested", "At any time on a motorcycle", "When riding in a group"], 1, "On roads with a speed limit over 80 km/h (over 80 means 90 km/h and above), you must keep out of the far right lane unless overtaking, turning right, avoiding an obstruction, or driving in congested traffic."],
+      [1, "What is the minimum lateral distance you must leave when passing a bicycle Rider on a road with a speed limit of 60 km/h or less?", ["0.5 metres", "At least 1 metre", "At least 1.5 metres", "2 metres"], 1, "When passing a cyclist at speeds of 60 km/h or less, you must leave at least 1 metre of clear space between your vehicle and the bicycle."],
+      [1, "What is the minimum lateral distance you must leave when passing a bicycle rider on a road with a speed limit OVER 60 km/h (e.g. 70, 80, 100 km/h)?", ["1 metre", "At least 1.5 metres", "2 metres", "2.5 metres"], 1, "On roads with a speed limit over 60 km/h, you must leave a minimum gap of at least 1.5 metres when overtaking a cyclist."],
+      [1, "To leave the required 1 m or 1.5 m safe passing distance around a cyclist, are you allowed to cross a continuous white dividing line when safe?", ["No, never cross a solid line", "Yes, you are permitted to straddle or cross a continuous dividing line or flat painted island if you have a clear view ahead and it is safe to do so", "Only in 40 km/h zones", "Only if a police officer waves you past"], 1, "Victorian law permits crossing a continuous dividing line to pass a cyclist at the required minimum distance, provided you have a clear view of oncoming traffic and can do so safely."],
+      [1, "How long must you signal with your indicator before pulling out from the kerb or stationary parked position?", ["1 second", "At least 5 seconds", "10 seconds", "You only need to check mirrors"], 1, "When moving off from the side of the road or a parked position, you must signal for at least 5 seconds before pulling out."],
+      [1, "What does a yellow (amber) traffic light mean?", ["Speed up to beat the red light", "Stop before the stop line, unless you are so close that stopping suddenly would cause a crash", "Give way to the right and proceed", "Prepare to start moving"], 1, "A yellow light is not an invitation to accelerate—you must stop if you can do so safely before reaching the stop line."],
+      [1, "If traffic lights at an intersection are completely blacked out or flashing yellow, what rule applies?", ["Traffic on the wider road has priority", "Treat the intersection as an unsigned intersection and give way to any vehicle on your right (and to trams and pedestrians)", "Proceed at 60 km/h without slowing", "Stop and wait for police"], 1, "When traffic lights are not operating or are flashing yellow, you must use the 'give way to the right' rule for uncontrolled intersections and take extreme care."],
+      [1, "When approaching a pedestrian crossing (zebra crossing) with no traffic lights, what must you do?", ["Sound your horn so pedestrians wait", "Approach at a speed that allows you to stop safely, and give way to any pedestrian on or entering the crossing", "Only stop if the pedestrian is directly in front of your wheel track", "Wave pedestrians back onto the kerb"], 1, "You must slow down and give way to any pedestrian on or entering a zebra crossing."],
+      [1, "What must you NOT do at or approaching a pedestrian crossing or children's crossing?", ["Check your mirrors", "Overtake or pass another vehicle that has slowed down or stopped to give way to pedestrians at the crossing", "Shift into first gear", "Signal a turn after the crossing"], 1, "Never overtake or pass a vehicle that has stopped or is slowing at a pedestrian or children's crossing—it is likely shielding a pedestrian crossing in front of it."],
+      [1, "At a Children's Crossing (where red-and-white flags are displayed), how long must you remain stopped when a pedestrian or crossing supervisor is on the crossing?", ["Until the pedestrian clears your lane only", "Until all pedestrians and the supervisor have completely left the crossing and reached the footpath, and the hand-held Stop sign is no longer displayed", "For 3 seconds", "Until the school bell rings"], 1, "At a flagged children's crossing, you must come to a complete stop and remain stationary until every pedestrian is completely off the road."],
+      [1, "When pulling out from a driveway, car park, or service station onto a road, who must you give way to?", ["Only vehicles from the right", "All vehicles travelling on the road AND all pedestrians, cyclists, and scooter riders on the footpath, nature strip, or bicycle path", "Nobody if your nose is out first", "Only trams"], 1, "When entering or leaving a road-related area (driveway/footpath), you must give way to all pedestrians and riders on the footpath as well as all traffic on the road."],
+      [1, "When a bus in a built-up area displays a 'Give Way to Buses' sign and signals its intention to pull out from the kerb or a bus stop in front of you, what must you do?", ["Accelerate past the bus quickly", "Give way to the moving/signalling bus pulled out into your lane", "Flash your high beam", "Ride between the bus and the kerb"], 1, "In built-up areas (up to 70 km/h zones), you must give way to a public bus displaying a Give Way sign that is signalling to pull out from the kerb ahead of you."],
+      [1, "When are you required to dip your high-beam headlights at night?", ["Within 50 metres of other vehicles", "Within at least 200 metres of an oncoming vehicle OR when travelling within 200 metres behind another vehicle", "Only in 50 km/h zones", "Only when it is raining"], 1, "You must switch from high beam to low beam within 200 metres of an oncoming vehicle and when within 200 metres behind a vehicle ahead so you don't dazzle them in their mirrors."],
+      [1, "Are you permitted to use your motorcycle's horn to greet a friend or express frustration at another driver?", ["Yes, during daylight hours", "No, you may only use your horn to warn other road users or animals of the approach or position of your vehicle", "Yes, if they cut you off", "Yes, at traffic lights when the car ahead waits 1 second"], 1, "It is illegal to sound your horn except as a safety warning to other road users or animals, or as part of an anti-theft device."],
+      [1, "What must you do whenApproaching a railway level crossing where red lights are flashing or warning bells are ringing?", ["Cross quickly before the boom gates come down", "Stop clear of the crossing and do not proceed until the bells stop, the flashing lights go out, the boom gates are fully raised, and the tracks are clear", "Zig-zag around half-boom gates", "Proceed if you cannot see a train"], 1, "Never enter a level crossing while lights are flashing or bells are ringing—a second train may be approaching from the opposite direction even after one train passes."],
+      [1, "Can you enter a railway level crossing or an intersection if traffic is queued on the other side and there is not enough space for you to clear it?", ["Yes, motorcycles are narrow enough to stop on the tracks", "No, you must not enter an intersection or level crossing if the road beyond is blocked by congested traffic", "Yes, if your traffic light is green", "Only in peak hour"], 1, "Even on a green light, it is illegal and dangerous to enter a level crossing or intersection if queued traffic will trap you inside it."],
+      [1, "What is the minimum distance you must park from an intersection WITHOUT traffic lights (unless signed otherwise)?", ["2 metres", "10 metres", "20 metres", "50 metres"], 1, "Unless signed otherwise, you must not park within 10 metres of an intersection without traffic lights (or 20 metres at an intersection with traffic lights)."],
+      [1, "What is the minimum distance you must park from an intersection WITH traffic lights (unless signed otherwise)?", ["5 metres", "10 metres", "20 metres", "30 metres"], 2, "You must stay at least 20 metres clear of an intersection controlled by traffic lights when parking, unless parking signs indicate otherwise."],
+      [1, "How close are you allowed to park to an Australia Post pillar box or a fire hydrant (unless signed otherwise)?", ["Right next to it on a motorcycle", "At least 3 metres from a post box and 1 metre from a fire hydrant", "10 metres from both", "0.5 metres"], 1, "Unless signed otherwise, keep at least 3 metres clear of a public post box and at least 1 metre clear of a fire hydrant or plug indicator."],
+      [1, "What do double continuous white dividing lines in the centre of a road mean?", ["You may cross them to overtake slow vehicles", "You must not cross them to overtake, make a U-turn, or turn right into a driveway (except slowly to pass a cyclist safely when clear)", "They indicate a bicycle lane", "They apply only to heavy vehicles"], 1, "You must stay to the left of double continuous dividing lines and must not cross them to overtake or turn right (unlike a single continuous line, which can be crossed to enter/leave a property)."],
+      [1, "Are you permitted to cross a SINGLE continuous white dividing line to turn right into or out of a driveway or property?", ["No, you must never cross a single continuous line for any reason", "Yes, in Victoria you may cross a single continuous dividing line to enter or leave a road/driveway, provided it is safe (though you cannot cross it to overtake or make a U-turn)", "Yes, you can also overtake across it", "Only on Sundays"], 1, "You may cross a single continuous line to enter or leave a property/driveway safely, whereas double continuous lines cannot be crossed even to enter a driveway."],
+      [1, "What does a broken (dashed) white line on your side of a continuous white line mean?", ["You must not cross the lines", "You may cross the lines to overtake or turn right if it is safe, because the broken line is closest to you", "Only oncoming traffic can overtake", "It marks a tram stop"], 1, "When the broken line is on your side of the continuous line, you may cross it to overtake or turn when safe; if the continuous line is on your side, you must not cross to overtake."],
+      [1, "What is a 'Clearway' zone and what happens if you leave a vehicle parked in it during Clearway hours?", ["A freeway rest stop", "A no-stopping zone during specified peak hours; vehicles stopped there can be fined and towed away", "A zone for clean electric vehicles only", "A 15-minute parking zone"], 1, "You must not stop or park in a Clearway during the times shown on the sign (except buses/taxis dropping off passengers); parked vehicles are towed."],
+      [1, "If you are involved in a road crash in Victoria where someone is injured or property is damaged, what are your legal obligations?", ["Ride away if your bike still runs", "Stop immediately, render assistance to anyone injured, call 000 if needed, and exchange your name, address, and registration details with other parties and police", "Only leave a note if the damage is over $50,000", "Wait 7 days before telling anyone"], 1, "Failing to stop and render assistance after an injury crash is a serious criminal offence in Victoria."],
+      [1, "When riding on a multi-lane freeway, how should you use an acceleration/entry lane?", ["Stop at the start of the entry lane and wait for all freeway traffic to disappear", "Build up your speed in the entry lane to match the speed of freeway traffic, signal for at least 5 seconds, check mirrors and blind spot, and merge smoothly into a safe gap", "Enter the freeway at 40 km/h", "Ride along the emergency breakdown lane for 2 km"], 1, "Matching the speed of the traffic flow on the freeway before merging makes joining the traffic stream smooth and safe."],
+      [1, "Are learner motorcycle riders in Victoria subject to a special lower maximum speed limit (such as 80 km/h), or may they ride up to the posted speed limit?", ["Restricted to 80 km/h at all times", "Restricted to 90 km/h on freeways", "Victorian learner riders may ride up to the posted speed limit (e.g. 100 or 110 km/h where signed), provided conditions are safe", "Restricted to 70 km/h at night"], 2, "Unlike some other states, Victoria does not impose an 80 km/h cap on learner riders—you may travel up to the posted speed limit when safe."],
+      [1, "What does a yellow diamond-shaped sign with a black symbol (such as a curve arrow, kangaroo, or slippery road icon) indicate?", ["A mandatory regulatory order", "A warning of a permanent hazard or change in road conditions ahead, advising you to slow down and take care", "A freeway exit number", "A tourist attraction"], 1, "Yellow diamond signs are warning signs alerting you to upcoming hazards such as sharp curves, intersections, narrow bridges, or wildlife."],
+      [1, "What does a rectangular yellow or orange sign with black lettering (e.g., 'Roadwork Ahead' or 'Prepare to Stop') indicate?", ["A historic monument", "Temporary roadworks or changed traffic conditions ahead; you must obey any temporary speed limits posted", "An optional advisory route", "A bicycle path"], 1, "Temporary roadwork speed limits and traffic controller directions are legally enforceable and protect workers and riders from loose gravel or uneven surfaces."],
+      [1, "Why are loose gravel or freshly resurfaced ('Loose Stones') roadworks particularly hazardous for motorcyclists?", ["Stones get stuck in the horn", "Loose stones act like ball bearings under motorcycle tyres, drastically reducing cornering and braking grip and creating flying stone hazards", "They increase tyre grip", "They only affect trucks"], 1, "On loose gravel or freshly sealed roads, slow down well before the surface begins, keep the bike upright, avoid sudden braking or throttle changes, and leave a large gap behind vehicles ahead."],
+      [1, "How long does it take the human body to process and eliminate roughly one standard drink of alcohol?", ["15 minutes", "About 1 hour per standard drink on average (though for learners the only safe limit is zero alcohol)", "A cold shower and black coffee remove it in 10 minutes", "30 minutes if you exercise"], 1, "Nothing speeds up how fast the liver metabolises alcohol, and even the morning after drinking you can still have alcohol in your blood—violating the 0.00 BAC learner requirement."],
+      [1, "What is the main cause of fatigue-related crashes on long trips, and what is the only effective cure for fatigue?", ["Lack of loud music; cure is winding down the visor", "Lack of quality sleep and riding for too long without breaks; the only real cure is sleep (plus taking regular 15-minute rest breaks every 2 hours)", "Riding during the day; cure is riding at midnight", "Eating lunch; cure is skipping meals"], 1, "Fresh air or caffeine only mask tiredness briefly. Get a full night's sleep before riding and take a break at least every 2 hours."],
+      [1, "What is 'scanning' when riding a motorcycle in traffic?", ["Looking only at the rear bumper of the car in front of you", "Continuously moving your eyes between the far distance (12 seconds ahead), middle distance, road surface, instruments, and mirrors to detect hazards early", "Turning your head 180 degrees continuously", "Watching the tachometer needle"], 1, "Active scanning—looking 12 seconds ahead, checking side streets, reading the road surface, and checking mirrors every few seconds—gives you time to respond smoothly to developing hazards."],
+      [1, "How can you tell if a parked car on the side of the road might be about to pull out into your path?", ["Wait until it hits your lane", "Look for clues: a person sitting in the driver's seat, exhaust smoke, brake or indicator lights coming on, or front wheels turned out towards the road", "Parked cars never move", "Only look at the rear number plate"], 1, "Spotting exhaust plumes, white reverse lights, a driver inside, or turned front wheels gives you early warning before the car moves."],
+      [1, "When overtaking another vehicle on a two-way single-lane road, what must you ensure before pulling out?", ["That you are on a blind crest", "That the road ahead is clearly visible for a sufficient distance, no oncoming traffic or intersections are close, no vehicle behind is overtaking you, and line markings permit overtaking", "That you stay 50 cm behind the vehicle before pulling out", "That you turn off your headlight"], 1, "Hold back far enough to see past the vehicle ahead, check mirrors and blind spot, signal, accelerate briskly past when completely clear, and only return to the left lane when you can see the overtaken vehicle in your mirrors."],
+      [1, "What must you do if another vehicle is overtaking you?", ["Accelerate so they cannot get past", "Maintain a steady speed or ease off slightly and keep to the left of your lane—you must NOT increase your speed while being overtaken", "Move to the right edge of your lane to block them", "Weave from side to side"], 1, "It is illegal and extremely dangerous to speed up while another driver or rider is overtaking you."],
+      [1, "At an intersection with a 'Stop' sign and a solid white stop line, where and how must you stop?", ["Slow down to 5 km/h and roll through if clear", "Come to a complete stop (wheels stationary, foot down) as close as practicable behind the solid stop line, and give way to all traffic and pedestrians", "Stop 15 metres back from the line", "Only stop if cars are coming"], 1, "At a Stop sign, you must come to a complete standstill at the stop line—rolling through a Stop sign is illegal and is an instant fail on a licence assessment."],
+      [1, "If an intersection has a 'Give Way' sign and a broken (dashed) white holding line, what must you do?", ["Stop for 5 seconds even if the road is completely empty", "Slow down and be prepared to stop if necessary, giving way to all vehicles on the intersecting road (and oncoming right-turners if turning) and pedestrians", "Accelerate through without looking", "Give way only to vehicles on your left"], 1, "At a Give Way sign, you must slow down, check both ways, and stop if needed to avoid a collision with any vehicle or pedestrian with priority."],
+      [1, "What does a red 'B' light at a set of traffic lights mean?", ["Brakes failure warning", "Buses have priority to proceed; all other riders and drivers must remain stopped on their red light", "Bicycles may proceed", "Both lanes may turn"], 1, "White or coloured 'B' lights apply strictly to public buses in bus lanes, just as 'T' lights apply strictly to trams."],
+      [1, "What does a white 'T' light at an intersection with tram tracks mean?", ["All traffic may turn", "Trams may proceed; other road users must obey the normal circular or arrow traffic lights", "Trucks only", "Toll road ahead"], 1, "White 'T' lights control trams; motorcyclists and car drivers must obey the standard red, yellow, and green traffic signals."],
+      [1, "When riding down a steep winding mountain descent, how should you control your speed?", ["Hold the clutch in and coast in neutral while dragging the rear brake continuously", "Select a lower gear before the descent to use engine braking, and apply both brakes intermittently before corners so the brakes do not overheat", "Turn off the engine to save fuel", "Use only the front brake while leaned over"], 1, "Selecting a lower gear lets engine compression help control your speed on steep hills and prevents brake fade from continuous dragging."]
+    ];
+
+    let questionBank = RAW_150_QUESTIONS.map((q, idx) => ({
+      id: "q_" + idx,
+      source: q[0] === 0 ? "Rider Handbook" : "Road to Solo Driving",
+      question: q[1],
+      options: q[2],
+      correctIndex: q[3],
+      explanation: q[4],
+      isOnline: false
+    }));
+
+    // Load any custom online questions saved previously in localStorage
+    const savedOnline = JSON.parse(localStorage.getItem("vicMotoOnlineBank") || "[]");
+    if (Array.isArray(savedOnline) && savedOnline.length > 0) {
+      questionBank = [...questionBank, ...savedOnline];
+    }
+
+    let seenIds = new Set(JSON.parse(localStorage.getItem("vicMotoSeenIds") || "[]"));
+    let currentQuiz = [];
+
+    const questionCountInput = document.getElementById("questionCount");
+    const sourceFilterSelect = document.getElementById("sourceFilter");
+    const prioritiseUnseenSelect = document.getElementById("prioritiseUnseen");
+    const questionsContainer = document.getElementById("questionsContainer");
+    const quizForm = document.getElementById("quizForm");
+    const scoreCard = document.getElementById("scoreCard");
+    const unansweredWarning = document.getElementById("unansweredWarning");
+    const apiKeyInput = document.getElementById("apiKeyInput");
+    const onlineTopicSelect = document.getElementById("onlineTopicSelect");
+    const fetchOnlineBtn = document.getElementById("fetchOnlineBtn");
+    const onlineStatus = document.getElementById("onlineStatus");
+
+    // Pre-fill saved API key if present
+    const savedKey = localStorage.getItem("vicMotoGeminiKey");
+    if (savedKey) apiKeyInput.value = savedKey;
+
+    function updateStats() {
+      const filter = sourceFilterSelect.value;
+      const pool = questionBank.filter(q => filter === "all" || q.source === filter);
+      const unseenCount = pool.filter(q => !seenIds.has(q.id)).length;
+      document.getElementById("bankCountDisplay").textContent = `Loaded Bank: ${questionBank.length} Questions`;
+      document.getElementById("seenCountDisplay").innerHTML = `Unseen in Pool: ${unseenCount} / ${pool.length} | <a href="#" id="resetSeenLink" style="color:var(--blue);">Reset Seen History</a>`;
+      document.getElementById("resetSeenLink").onclick = (e) => {
+        e.preventDefault();
+        seenIds.clear();
+        localStorage.removeItem("vicMotoSeenIds");
+        updateStats();
+      };
+    }
+
+    function shuffle(arr) {
+      const copy = [...arr];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    function startNewQuiz() {
+      scoreCard.style.display = "none";
+      unansweredWarning.style.display = "none";
+      document.getElementById("submitBtn").style.display = "block";
+
+      const count = Math.max(1, parseInt(questionCountInput.value, 10) || 32);
+      const filter = sourceFilterSelect.value;
+      const mode = prioritiseUnseenSelect.value;
+
+      let pool = questionBank.filter(q => filter === "all" || q.source === filter);
+
+      if (mode === "unseen") {
+        const unseen = shuffle(pool.filter(q => !seenIds.has(q.id)));
+        const seen = shuffle(pool.filter(q => seenIds.has(q.id)));
+        currentQuiz = [...unseen, ...seen].slice(0, count);
+      } else {
+        currentQuiz = shuffle(pool).slice(0, count);
+      }
+
+      renderQuiz();
+      updateStats();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function renderQuiz() {
+      questionsContainer.innerHTML = "";
+      currentQuiz.forEach((q, qIdx) => {
+        const card = document.createElement("div");
+        card.className = "question-card";
+        const badgeClass = q.source === "Rider Handbook" ? "badge-rider" : "badge-road";
+
+        card.innerHTML = `
+          <div>
+            <span class="badge ${badgeClass}">${q.source}</span>
+            ${q.isOnline ? '<span class="badge badge-online">Live Generated</span>' : ''}
+          </div>
+          <div class="question-title">${qIdx + 1}. ${q.question}</div>
+          <ul class="options-list">
+            ${q.options.map((opt, oIdx) => `
+              <li>
+                <label class="option-label" id="label_${qIdx}_${oIdx}">
+                  <input type="radio" name="q_${qIdx}" value="${oIdx}" />
+                  <span>${opt}</span>
+                </label>
+              </li>
+            `).join("")}
+          </ul>
+          <div class="explanation" id="exp_${qIdx}">
+            <strong>Explanation:</strong> ${q.explanation}
+          </div>
+        `;
+        questionsContainer.appendChild(card);
+      });
+    }
+
+    quizForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      let correct = 0;
+      let unanswered = 0;
+
+      currentQuiz.forEach((_, qIdx) => {
+        if (!document.querySelector(`input[name="q_${qIdx}"]:checked`)) {
+          unanswered++;
+        }
+      });
+
+      if (unanswered > 0) {
+        unansweredWarning.textContent = `Note: You left ${unanswered} question(s) unanswered. They have been marked incorrect below.`;
+        unansweredWarning.style.display = "block";
+      } else {
+        unansweredWarning.style.display = "none";
+      }
+
+      currentQuiz.forEach((q, qIdx) => {
+        const selected = document.querySelector(`input[name="q_${qIdx}"]:checked`);
+        const userAns = selected ? parseInt(selected.value, 10) : -1;
+
+        seenIds.add(q.id);
+
+        q.options.forEach((_, oIdx) => {
+          const label = document.getElementById(`label_${qIdx}_${oIdx}`);
+          label.classList.remove("correct-choice", "wrong-choice");
+          if (oIdx === q.correctIndex) {
+            label.classList.add("correct-choice");
+          } else if (oIdx === userAns && userAns !== q.correctIndex) {
+            label.classList.add("wrong-choice");
+          }
+        });
+
+        if (userAns === q.correctIndex) correct++;
+        document.getElementById(`exp_${qIdx}`).style.display = "block";
+      });
+
+      localStorage.setItem("vicMotoSeenIds", JSON.stringify([...seenIds]));
+      updateStats();
+
+      const total = currentQuiz.length;
+      const pct = Math.round((correct / total) * 100);
+      const passed = pct >= 78;
+
+      scoreCard.className = `score-card ${passed ? "pass" : "fail"}`;
+      scoreCard.style.display = "block";
+      const pill = document.getElementById("passStatusPill");
+      pill.className = `status-pill ${passed ? "status-pass" : "status-fail"}`;
+      pill.textContent = passed ? "PASSED (≥ 78%)" : "NEEDS MORE PRACTICE (< 78%)";
+      document.getElementById("scoreDisplay").textContent = `${correct} / ${total} (${pct}%)`;
+      document.getElementById("scoreFeedback").textContent = passed
+        ? "Great job! You met the 78% Victorian Learner Permit pass standard."
+        : "Review the highlighted explanations below and click 'Load Next Set of Questions' to practice again.";
+
+      window.scrollTo({ top: scoreCard.offsetTop - 20, behavior: "smooth" });
+    });
+
+    // Live Online Question Generator via Gemini API
+    fetchOnlineBtn.addEventListener("click", async () => {
+      const apiKey = apiKeyInput.value.trim();
+      if (!apiKey) {
+        onlineStatus.style.color = "var(--red)";
+        onlineStatus.textContent = "Please enter a valid Google Gemini API Key first.";
+        return;
+      }
+      localStorage.setItem("vicMotoGeminiKey", apiKey);
+
+      const topic = onlineTopicSelect.value;
+      fetchOnlineBtn.disabled = true;
+      onlineStatus.style.color = "var(--blue)";
+      onlineStatus.textContent = "Generating 10 brand-new Victorian practice questions...";
+
+      const prompt = `Generate 10 multiple-choice practice questions for the Victoria (Australia) Motorcycle Learner Permit knowledge test focusing on: ${topic}.
+Return ONLY a valid JSON array of objects with exact keys:
+"source": either "Rider Handbook" or "Road to Solo Driving",
+"question": string,
+"options": array of 4 strings,
+"correctIndex": integer 0 to 3,
+"explanation": concise explanation string based on Victorian road rules.`;
+
+      try {
+        const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${encodeURIComponent(apiKey)}`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: prompt }] }],
+            generationConfig: { responseMimeType: "application/json" }
+          })
+        });
+
+        if (!res.ok) throw new Error(`API returned status ${res.status}`);
+        const data = await res.json();
+        const rawText = data?.candidates?.[0]?.content?.parts?.[0]?.text || "[]";
+        const parsed = JSON.parse(rawText);
+
+        if (!Array.isArray(parsed) || parsed.length === 0) {
+          throw new Error("Could not parse questions from response.");
+        }
+
+        const newItems = parsed.map((item, i) => ({
+          id: "online_" + Date.now() + "_" + i,
+          source: item.source === "Road to Solo Driving" ? "Road to Solo Driving" : "Rider Handbook",
+          question: item.question,
+          options: item.options,
+          correctIndex: Number(item.correctIndex) || 0,
+          explanation: item.explanation || "",
+          isOnline: true
+        }));
+
+        questionBank = [...newItems, ...questionBank];
+        const existingOnline = JSON.parse(localStorage.getItem("vicMotoOnlineBank") || "[]");
+        localStorage.setItem("vicMotoOnlineBank", JSON.stringify([...newItems, ...existingOnline]));
+
+        onlineStatus.style.color = "var(--green)";
+        onlineStatus.textContent = `✅ Added ${newItems.length} new live questions to your bank and loaded a new quiz!`;
+        startNewQuiz();
+      } catch (err) {
+        onlineStatus.style.color = "var(--red)";
+        onlineStatus.textContent = `❌ Error fetching live questions: ${err.message}`;
+      } finally {
+        fetchOnlineBtn.disabled = false;
+      }
+    });
+
+    document.getElementById("newQuizBtn").addEventListener("click", startNewQuiz);
+    sourceFilterSelect.addEventListener("change", startNewQuiz);
+    prioritiseUnseenSelect.addEventListener("change", startNewQuiz);
+
+    // Initial load
+    startNewQuiz();
+  </script>
+</body>
+</html>
