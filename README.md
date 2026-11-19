@@ -12,13 +12,3 @@ Built with Gemini, VicRider is a new web tool designed to help prospective rider
 * **Instant Scoring & Detailed Reviews:** Get immediate feedback on your performance with thorough explanations for every answer.
 
 ---
-
-**Alternative: Short & Punchy Version (for app stores, social media, or changelogs)**
-
-**VicRider v1.0 – Victorian Motorcycle Learner Test Prep**
-Prepare for your Victorian Motorcycle Learner Knowledge Test with VicRider, a new AI-powered study tool built with Gemini.
-
-* **150+ Practice Questions:** Based on the *VicRoads Rider Handbook* and Victorian road rules.
-* **Tailored Quizzes:** Customise quiz length, filter by topic, and prioritise unseen questions.
-* **Infinite Practice:** Bring your own Google Gemini API key (stored locally in your browser) to generate fresh questions anytime.
-* **Learn as You Go:** Track your score and review detailed explanations for every question.
